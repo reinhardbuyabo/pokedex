@@ -21,7 +21,9 @@ type LocationArea struct {
 }
 
 func getNamesofLocations(url string) (*pokeResponse, error) {
-	// url := ""
+	if url == "" {
+		url = "https://pokeapi.co/api/v2/location-area/?limit=20&offset=0"
+	}
 	res, err := http.Get(url)
 	if err != nil {
 		fmt.Println("something went wrong")
